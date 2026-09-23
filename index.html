@@ -15,7 +15,6 @@ button,input{font:inherit}
 button{cursor:pointer;border:0}
 .hidden{display:none!important}
 
-/* AUTH */
 .auth{height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:
  radial-gradient(circle at 10% 10%,#e8e6ff 0,transparent 30%),
  radial-gradient(circle at 90% 90%,#dff8ee 0,transparent 28%),var(--bg)}
@@ -29,9 +28,11 @@ button{cursor:pointer;border:0}
 .field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #635bff18}
 .primary{width:100%;padding:13px;border-radius:11px;background:var(--accent);color:#fff;font-weight:700}
 .primary:hover{background:var(--accent2)}
+.primary:disabled{opacity:.6;cursor:not-allowed}
 .switch{margin-top:18px;text-align:center;color:var(--muted);font-size:14px}.switch button{background:none;color:var(--accent);font-weight:700}
+.setup-box{background:#fff8e6;border:1px solid #f0d78c;border-radius:12px;padding:14px;margin-bottom:18px;font-size:13px;line-height:1.5;color:#5c4a1a}
+.setup-box code{background:#fff;padding:1px 5px;border-radius:4px;font-size:12px}
 
-/* APP */
 .app{height:100vh;display:grid;grid-template-columns:290px 1fr 280px;background:#fff}
 .sidebar{border-right:1px solid var(--border);display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden}
 .side-top{padding:20px;border-bottom:1px solid var(--border)}
@@ -52,12 +53,10 @@ button{cursor:pointer;border:0}
 .me-info{flex:1;min-width:0}.me-info strong{display:block;font-size:13px}.me-info span{font-size:11px;color:var(--muted)}
 .icon-btn{width:34px;height:34px;border-radius:9px;background:#f4f5f8;color:#5c6575;display:grid;place-items:center}.icon-btn:hover{background:#e9eaf0}
 
-/* CHAT */
 .chat{display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;background:#fbfcfe}
-.chat-header{height:75px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 22px;gap:12px}
+.chat-header{height:75px;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 22px;gap:12px;flex:none}
 .header-info{flex:1}.header-info strong{font-size:15px}.header-info span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
-.messages{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:25px 7%;display:flex;flex-direction:column;gap:9px}
-.messages{-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:thin}
+.messages{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;padding:25px 7%;display:flex;flex-direction:column;gap:9px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:thin}
 .empty{margin:auto;text-align:center;color:var(--muted)}.empty-icon{font-size:40px;margin-bottom:12px}
 .msg{max-width:70%;display:flex;flex-direction:column}.msg.mine{align-self:flex-end;align-items:flex-end}.msg.theirs{align-self:flex-start}
 .bubble{padding:11px 14px;border-radius:15px;background:#fff;border:1px solid var(--border);line-height:1.45;font-size:14px;white-space:pre-wrap;word-break:break-word;overflow:hidden}
@@ -72,21 +71,19 @@ button{cursor:pointer;border:0}
 .msg-actions{display:flex;gap:5px;margin-top:4px;opacity:0;transition:opacity .15s}
 .msg:hover .msg-actions{opacity:1}
 .msg-actions button{border:1px solid var(--border);background:#fff;color:#667085;border-radius:7px;padding:3px 7px;font-size:10px}
-.mine .msg-actions button:hover{background:#f1f2f5}
 .edited{font-size:9px;opacity:.75;margin-left:5px;font-style:italic}
 
-.composer{padding:14px 7%;background:#fff;border-top:1px solid var(--border);display:flex;gap:8px;align-items:center}
+.composer{padding:14px 7%;background:#fff;border-top:1px solid var(--border);display:flex;gap:8px;align-items:center;flex:none}
 .composer input[type=text]{flex:1;border:1px solid var(--border);border-radius:13px;padding:13px 15px;outline:none;background:#f8f9fc}
 .composer input:focus{border-color:var(--accent)}
 .send,.attach{width:44px;height:44px;border-radius:12px;background:var(--accent);color:#fff;font-size:18px;display:grid;place-items:center;flex:none}
 .attach{background:#f0f1f5;color:#5c6575;font-size:20px}.attach:hover{background:#e4e6ec}
-.preview-bar{display:none;padding:8px 7%;background:#f8f9fc;border-top:1px solid var(--border);align-items:center;gap:10px}
+.preview-bar{display:none;padding:8px 7%;background:#f8f9fc;border-top:1px solid var(--border);align-items:center;gap:10px;flex:none}
 .preview-bar.show{display:flex}
 .preview-bar img,.preview-bar video{height:48px;border-radius:8px;object-fit:cover}
 .preview-bar .prev-info{flex:1;min-width:0;font-size:13px}.preview-bar .prev-info strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .preview-bar button{background:none;color:var(--danger);font-size:18px;padding:4px 8px}
 
-/* RIGHT */
 .details{border-left:1px solid var(--border);background:#fff;padding:28px 20px;overflow:auto;min-height:0}
 .profile{text-align:center;padding:10px 0 25px;border-bottom:1px solid var(--border)}
 .profile .avatar{width:82px;height:82px;border-radius:24px;font-size:27px;margin:0 auto 12px;cursor:pointer;position:relative}
@@ -98,7 +95,6 @@ button{cursor:pointer;border:0}
 .member-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}.member-row .avatar{width:32px;height:32px;font-size:13px;border-radius:10px}
 .action{width:100%;padding:11px;border-radius:10px;background:#f4f5f8;margin-top:8px;font-weight:700;color:#4e5665}.action.danger{color:var(--danger)}
 
-/* MODAL / TOAST */
 .overlay{position:fixed;inset:0;background:#1118;display:grid;place-items:center;z-index:20;padding:20px}
 .modal{width:460px;max-width:100%;max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:24px;box-shadow:0 25px 80px #0003}
 .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-head h3{font-size:19px}
@@ -112,8 +108,8 @@ button{cursor:pointer;border:0}
 .toast{position:fixed;right:20px;bottom:20px;background:#172033;color:#fff;padding:12px 16px;border-radius:11px;z-index:50;font-size:13px;box-shadow:0 10px 30px #0003}
 .avatar-preview{width:80px;height:80px;border-radius:20px;margin:0 auto 12px;overflow:hidden;display:grid;place-items:center;background:#eee;font-size:28px;font-weight:800;color:#fff}
 .avatar-preview img{width:100%;height:100%;object-fit:cover}
+.loading-overlay{position:fixed;inset:0;background:#fff;display:grid;place-items:center;z-index:100;font-size:15px;color:var(--muted)}
 
-/* MOBILE */
 @media(max-width:900px){
  .app{grid-template-columns:260px 1fr}.details{display:none}
  .messages,.composer,.preview-bar{padding-left:4%;padding-right:4%}
@@ -127,22 +123,28 @@ button{cursor:pointer;border:0}
 </head>
 <body>
 
-<div id="auth" class="auth">
+<div id="loading" class="loading-overlay">Connecting…</div>
+
+<div id="auth" class="auth hidden">
   <div class="auth-card">
     <div class="logo"><div class="logo-icon">A</div><div><h1>AyushChat</h1><span>Private • Simple • Connected</span></div></div>
+    <div id="setupNotice" class="setup-box hidden">
+      <strong>Firebase not configured yet.</strong><br>
+      Open this file, find <code>FIREBASE_CONFIG</code> near the top of the script, and paste your Firebase web app config.
+    </div>
     <div id="loginBox">
       <h2>Welcome back</h2><p class="auth-sub">Sign in to continue chatting.</p>
       <div class="field"><label>Username</label><input id="loginUser" autocomplete="username" placeholder="Enter username"></div>
       <div class="field"><label>Password</label><input id="loginPass" type="password" autocomplete="current-password" placeholder="Enter password"></div>
-      <button class="primary" onclick="login()">Sign In</button>
-      <div class="switch">Don't have an account? <button onclick="showSignup()">Create one</button></div>
+      <button class="primary" id="loginBtn" onclick="login()">Sign In</button>
+      <div class="switch">Don&apos;t have an account? <button onclick="showSignup()">Create one</button></div>
     </div>
     <div id="signupBox" class="hidden">
-      <h2>Create account</h2><p class="auth-sub">Create a local AyushChat account.</p>
+      <h2>Create account</h2><p class="auth-sub">Your account works on every device.</p>
       <div class="field"><label>Username</label><input id="signupUser" placeholder="3–20 characters"></div>
       <div class="field"><label>Display name</label><input id="signupName" placeholder="Your name"></div>
       <div class="field"><label>Password</label><input id="signupPass" type="password" placeholder="At least 6 characters"></div>
-      <button class="primary" onclick="signup()">Create Account</button>
+      <button class="primary" id="signupBtn" onclick="signup()">Create Account</button>
       <div class="switch">Already have an account? <button onclick="showLogin()">Sign in</button></div>
     </div>
   </div>
@@ -209,7 +211,7 @@ button{cursor:pointer;border:0}
         <div class="detail-title">Members</div>
         <div id="groupMembersList"></div>
       </div>
-      <button class="action" onclick="clearChat()">Clear local messages</button>
+      <button class="action" onclick="clearChat()">Clear local view</button>
       <button id="leaveGroupBtn" class="action danger hidden" onclick="leaveGroup()">Leave group</button>
       <button id="removeFriendBtn" class="action danger" onclick="removeFriend()">Remove friend</button>
     </div>
@@ -224,362 +226,549 @@ button{cursor:pointer;border:0}
 </div>
 <div id="toast" class="toast hidden"></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
+
 <script>
 /*
- AyushChat — Single HTML Edition (enhanced)
- Data stored in this browser's localStorage.
- Supports: accounts, friends, groups, profile pictures, file/media sharing.
+ ═══════════════════════════════════════════════════════════════
+  AyushChat — Online Edition (Firebase)
+  Host on GitHub Pages. Accounts work on every device.
+
+  SETUP (once):
+  1. https://console.firebase.google.com → Create project
+  2. Authentication → Sign-in method → Email/Password → Enable
+  3. Firestore Database → Create (start in test mode for demo)
+  4. Storage → Get started (test mode for demo)
+  5. Project settings → Your apps → Web → copy config
+  6. Paste into FIREBASE_CONFIG below
+  7. Commit & push this file to your GitHub Pages repo
+  ═══════════════════════════════════════════════════════════════
 */
-const DBKEY="AYUSHCHAT_SINGLE_FILE_V2";
-const MAX_FILE_BYTES=2.5*1024*1024; // ~2.5 MB demo limit (localStorage constraints)
 
-let db=JSON.parse(localStorage.getItem(DBKEY)||'null');
-if(!db){
-  // migrate from old key if present
-  const old=JSON.parse(localStorage.getItem("AYUSHCHAT_SINGLE_FILE_V1")||'null');
-  if(old){
-    db={...old,groups:old.groups||[]};
-    db.users.forEach(u=>{if(u.avatar===undefined)u.avatar=null});
-  }else{
-    db={users:[],requests:[],friends:{},groups:[],messages:{},current:null};
-  }
+const FIREBASE_CONFIG = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const MAX_FILE_BYTES = 5 * 1024 * 1024;
+const EMAIL_DOMAIN = "@ayushchat.app";
+
+let auth, db, storage;
+let currentUser = null;
+let currentUid = null;
+let friends = [];
+let groups = [];
+let usersCache = {};
+let activeType = null;
+let activeId = null;
+let pendingFile = null;
+let unsubMessages = null;
+let unsubFriends = null;
+let unsubGroups = null;
+let messagesList = [];
+
+function isConfigured(){
+  return FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY";
 }
-let activeType=null; // 'user' | 'group'
-let activeId=null;
-let pendingFile=null; // {name,type,size,dataUrl,kind}
-
-function save(){localStorage.setItem(DBKEY,JSON.stringify(db))}
-function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
-function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function user(id){return db.users.find(u=>u.id===id)}
-function group(id){return (db.groups||[]).find(g=>g.id===id)}
-function color(id){let n=0;for(let c of String(id))n=(n+c.charCodeAt(0))%360;return `hsl(${n} 65% 52%)`}
-function key(a,b){return [a,b].sort().join("_")}
-function msgKey(){
-  if(activeType==='group')return 'g_'+activeId;
-  if(activeType==='user')return key(db.current,activeId);
+function toast(t){
+  const x = document.getElementById("toast");
+  x.textContent = t;
+  x.classList.remove("hidden");
+  clearTimeout(window._tt);
+  window._tt = setTimeout(() => x.classList.add("hidden"), 2800);
+}
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m])); }
+function color(id){ let n=0; for(const c of String(id)) n=(n+c.charCodeAt(0))%360; return `hsl(${n} 65% 52%)`; }
+function formatSize(n){ if(n<1024) return n+' B'; if(n<1024*1024) return (n/1024).toFixed(1)+' KB'; return (n/1024/1024).toFixed(1)+' MB'; }
+function dmKey(a,b){ return [a,b].sort().join("_"); }
+function chatId(){
+  if(activeType==='group') return 'g_'+activeId;
+  if(activeType==='user') return 'dm_'+dmKey(currentUid, activeId);
   return null;
 }
-function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.remove("hidden");clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.add("hidden"),2500)}
-function formatSize(n){if(n<1024)return n+' B';if(n<1024*1024)return (n/1024).toFixed(1)+' KB';return (n/1024/1024).toFixed(1)+' MB'}
+function usernameToEmail(u){ return u.trim().toLowerCase() + EMAIL_DOMAIN; }
 
-function avatarHTML(entity,cls="avatar",withStatus=false){
-  // entity is user or group-like {id,name,avatar,online?}
-  const letter=esc(((entity.name||entity.username||'?')[0]||'?').toUpperCase());
-  const bg=entity.avatar?`background:transparent`:`background:${color(entity.id)}`;
-  const img=entity.avatar?`<img src="${entity.avatar}" alt="">`:letter;
-  const st=withStatus?`<i class="status ${entity.online?'online':''}"></i>`:'';
+function avatarHTML(entity, cls="avatar", withStatus=false){
+  const letter = esc(((entity.name||entity.username||'?')[0]||'?').toUpperCase());
+  const bg = entity.avatar ? 'background:transparent' : `background:${color(entity.id||entity.uid||'?')}`;
+  const img = entity.avatar ? `<img src="${entity.avatar}" alt="">` : letter;
+  const st = withStatus ? `<i class="status ${entity.online?'online':''}"></i>` : '';
   return `<div class="${cls}" style="${bg}">${img}${st}</div>`;
 }
 
-function showLogin(){document.getElementById("loginBox").classList.remove("hidden");document.getElementById("signupBox").classList.add("hidden")}
-function showSignup(){document.getElementById("loginBox").classList.add("hidden");document.getElementById("signupBox").classList.remove("hidden")}
+async function init(){
+  if(!isConfigured()){
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("auth").classList.remove("hidden");
+    document.getElementById("setupNotice").classList.remove("hidden");
+    document.getElementById("loginBtn").disabled = true;
+    document.getElementById("signupBtn").disabled = true;
+    return;
+  }
+  try{
+    firebase.initializeApp(FIREBASE_CONFIG);
+    auth = firebase.auth();
+    db = firebase.firestore();
+    storage = firebase.storage();
+  }catch(e){
+    document.getElementById("loading").textContent = "Firebase init failed: "+e.message;
+    return;
+  }
 
-function signup(){
-  const username=document.getElementById("signupUser").value.trim();
-  const name=document.getElementById("signupName").value.trim()||username;
-  const pass=document.getElementById("signupPass").value;
-  if(!/^[A-Za-z0-9_]{3,20}$/.test(username))return toast("Username: 3–20 letters, numbers or _");
-  if(pass.length<6)return toast("Password must be at least 6 characters.");
-  if(db.users.some(u=>u.username.toLowerCase()===username.toLowerCase()))return toast("That username already exists.");
-  const u={id:uid(),username,name,pass,avatar:null,created:Date.now(),online:true};
-  db.users.push(u);db.friends[u.id]=[];db.current=u.id;save();enterApp();
+  auth.onAuthStateChanged(async (user) => {
+    if(user){
+      currentUid = user.uid;
+      await loadMyProfile();
+      await setOnline(true);
+      startListeners();
+      enterApp();
+    }else{
+      stopListeners();
+      currentUser = null;
+      currentUid = null;
+      document.getElementById("loading").classList.add("hidden");
+      document.getElementById("app").classList.add("hidden");
+      document.getElementById("auth").classList.remove("hidden");
+    }
+  });
+
+  window.addEventListener("beforeunload", () => { if(currentUid) setOnline(false); });
 }
-function login(){
-  const un=document.getElementById("loginUser").value.trim().toLowerCase(),pass=document.getElementById("loginPass").value;
-  const u=db.users.find(x=>x.username.toLowerCase()===un&&x.pass===pass);
-  if(!u)return toast("Incorrect username or password.");
-  u.online=true;db.current=u.id;save();enterApp();
+
+async function loadMyProfile(){
+  const snap = await db.collection("users").doc(currentUid).get();
+  if(snap.exists){
+    currentUser = { id: currentUid, ...snap.data() };
+  }else{
+    currentUser = { id: currentUid, username: "user", name: "User", avatar: null, online: true };
+  }
+  usersCache[currentUid] = currentUser;
 }
-function logout(){if(db.current){let u=user(db.current);if(u)u.online=false}db.current=null;activeId=null;activeType=null;save();location.reload()}
+
+async function setOnline(v){
+  if(!currentUid) return;
+  try{
+    await db.collection("users").doc(currentUid).set({ online: v, lastSeen: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
+  }catch(_){}
+}
+
+function startListeners(){
+  unsubFriends = db.collection("users").doc(currentUid).onSnapshot(async (snap) => {
+    const data = snap.data() || {};
+    friends = data.friends || [];
+    currentUser = { id: currentUid, ...data };
+    usersCache[currentUid] = currentUser;
+    updateMyAvatar();
+    document.getElementById("myName").textContent = currentUser.name || "User";
+    document.getElementById("myUsername").textContent = "@"+(currentUser.username||"user");
+    await prefetchUsers(friends);
+    renderChats();
+  });
+
+  unsubGroups = db.collection("groups").where("members","array-contains",currentUid)
+    .onSnapshot(async (snap) => {
+      groups = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      renderChats();
+      if(activeType==='group' && activeId) renderDetails();
+    });
+}
+
+function stopListeners(){
+  if(unsubFriends) unsubFriends();
+  if(unsubGroups) unsubGroups();
+  if(unsubMessages) unsubMessages();
+  unsubFriends = unsubGroups = unsubMessages = null;
+}
+
+async function prefetchUsers(uids){
+  const missing = uids.filter(id => !usersCache[id]);
+  await Promise.all(missing.map(async id => {
+    try{
+      const s = await db.collection("users").doc(id).get();
+      if(s.exists) usersCache[id] = { id, ...s.data() };
+    }catch(_){}
+  }));
+}
+
+function getUser(id){ return usersCache[id] || { id, name: "User", username: "user", avatar: null, online: false }; }
+
+function showLogin(){
+  document.getElementById("loginBox").classList.remove("hidden");
+  document.getElementById("signupBox").classList.add("hidden");
+}
+function showSignup(){
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("signupBox").classList.remove("hidden");
+}
+
+async function signup(){
+  if(!isConfigured()) return toast("Configure Firebase first.");
+  const username = document.getElementById("signupUser").value.trim();
+  const name = (document.getElementById("signupName").value.trim() || username);
+  const pass = document.getElementById("signupPass").value;
+  if(!/^[A-Za-z0-9_]{3,20}$/.test(username)) return toast("Username: 3–20 letters, numbers or _");
+  if(pass.length < 6) return toast("Password must be at least 6 characters.");
+
+  const btn = document.getElementById("signupBtn");
+  btn.disabled = true;
+  try{
+    const unameRef = db.collection("usernames").doc(username.toLowerCase());
+    const existing = await unameRef.get();
+    if(existing.exists){ toast("That username already exists."); btn.disabled=false; return; }
+
+    const email = usernameToEmail(username);
+    const cred = await auth.createUserWithEmailAndPassword(email, pass);
+    const uid = cred.user.uid;
+
+    await db.collection("users").doc(uid).set({
+      username,
+      name,
+      avatar: null,
+      friends: [],
+      online: true,
+      created: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    await unameRef.set({ uid });
+    toast("Account created!");
+  }catch(e){
+    console.error(e);
+    toast(e.code === "auth/email-already-in-use" ? "Username already taken." : (e.message || "Signup failed"));
+  }
+  btn.disabled = false;
+}
+
+async function login(){
+  if(!isConfigured()) return toast("Configure Firebase first.");
+  const un = document.getElementById("loginUser").value.trim().toLowerCase();
+  const pass = document.getElementById("loginPass").value;
+  if(!un || !pass) return toast("Enter username and password.");
+  const btn = document.getElementById("loginBtn");
+  btn.disabled = true;
+  try{
+    await auth.signInWithEmailAndPassword(usernameToEmail(un), pass);
+  }catch(e){
+    console.error(e);
+    toast("Incorrect username or password.");
+  }
+  btn.disabled = false;
+}
+
+async function logout(){
+  await setOnline(false);
+  stopListeners();
+  await auth.signOut();
+  activeId = null;
+  activeType = null;
+  location.reload();
+}
 
 function enterApp(){
-  document.getElementById("auth").classList.add("hidden");document.getElementById("app").classList.remove("hidden");
-  const me=user(db.current);
-  document.getElementById("myName").textContent=me.name;
-  document.getElementById("myUsername").textContent="@"+me.username;
+  document.getElementById("loading").classList.add("hidden");
+  document.getElementById("auth").classList.add("hidden");
+  document.getElementById("app").classList.remove("hidden");
+  document.getElementById("myName").textContent = currentUser.name;
+  document.getElementById("myUsername").textContent = "@"+currentUser.username;
   updateMyAvatar();
   renderChats();
-  if(!activeId)showNoChat();
+  if(!activeId) showNoChat();
 }
+
 function updateMyAvatar(){
-  const me=user(db.current);
-  const el=document.getElementById("myAvatar");
-  el.style.background=me.avatar?'transparent':color(me.id);
-  el.innerHTML=me.avatar?`<img src="${me.avatar}" alt="">`:esc(me.name[0].toUpperCase());
+  const me = currentUser;
+  const el = document.getElementById("myAvatar");
+  if(!el || !me) return;
+  el.style.background = me.avatar ? "transparent" : color(me.id);
+  el.innerHTML = me.avatar ? `<img src="${me.avatar}" alt="">` : esc((me.name||"?")[0].toUpperCase());
 }
+
 function showNoChat(){
-  activeType=null;activeId=null;
-  document.getElementById("headName").textContent="Select a conversation";
-  document.getElementById("headStatus").textContent="Choose a friend or group to start chatting";
-  document.getElementById("headAvatar").style.display="none";
+  activeType = null; activeId = null;
+  if(unsubMessages){ unsubMessages(); unsubMessages=null; }
+  messagesList = [];
+  document.getElementById("headName").textContent = "Select a conversation";
+  document.getElementById("headStatus").textContent = "Choose a friend or group to start chatting";
+  document.getElementById("headAvatar").style.display = "none";
   document.getElementById("composer").classList.add("hidden");
   document.getElementById("previewBar").classList.remove("show");
   clearPendingFile();
-  document.getElementById("messages").innerHTML='<div class="empty"><div class="empty-icon">💬</div><h3>Your conversations</h3><p>Add a friend, create a group, and start chatting.</p></div>';
+  document.getElementById("messages").innerHTML = '<div class="empty"><div class="empty-icon">💬</div><h3>Your conversations</h3><p>Add a friend, create a group, and start chatting.</p></div>';
   document.getElementById("detailEmpty").classList.remove("hidden");
   document.getElementById("detailProfile").classList.add("hidden");
 }
 
 function getMyConversations(){
-  const q=document.getElementById("chatSearch").value.toLowerCase();
-  const me=db.current;
-  const items=[];
-  // friends
-  (db.friends[me]||[]).forEach(fid=>{
-    const u=user(fid);if(!u)return;
-    if(!(u.name+" "+u.username).toLowerCase().includes(q))return;
-    const ms=db.messages[key(me,u.id)]||[];
-    const last=ms[ms.length-1];
-    items.push({type:'user',id:u.id,name:u.name,entity:u,last,time:last?last.time:0});
+  const q = (document.getElementById("chatSearch").value || "").toLowerCase();
+  const items = [];
+  friends.forEach(fid => {
+    const u = getUser(fid);
+    if(!(u.name+" "+u.username).toLowerCase().includes(q)) return;
+    items.push({ type:'user', id: fid, name: u.name, entity: u, time: 0 });
   });
-  // groups I belong to
-  (db.groups||[]).forEach(g=>{
-    if(!g.members.includes(me))return;
-    if(!g.name.toLowerCase().includes(q))return;
-    const ms=db.messages['g_'+g.id]||[];
-    const last=ms[ms.length-1];
-    items.push({type:'group',id:g.id,name:g.name,entity:g,last,time:last?last.time:0});
+  groups.forEach(g => {
+    if(!g.name.toLowerCase().includes(q)) return;
+    items.push({ type:'group', id: g.id, name: g.name, entity: g, time: g.updatedAt?.toMillis?.() || 0 });
   });
-  items.sort((a,b)=>b.time-a.time);
+  items.sort((a,b) => b.time - a.time);
   return items;
 }
 
 function renderChats(){
-  const list=document.getElementById("chatList");
-  const items=getMyConversations();
+  const list = document.getElementById("chatList");
+  const items = getMyConversations();
   if(!items.length){
-    list.innerHTML='<div style="padding:35px 10px;text-align:center;color:#9aa2b1;font-size:12px">No conversations yet.<br><br>Add a friend or create a group.</div>';
+    list.innerHTML = '<div style="padding:35px 10px;text-align:center;color:#9aa2b1;font-size:12px">No conversations yet.<br><br>Add a friend or create a group.</div>';
     return;
   }
-  list.innerHTML=items.map(it=>{
-    const isActive=activeType===it.type&&activeId===it.id;
-    let lastText="Start a conversation";
-    if(it.last){
-      if(it.last.kind==='image')lastText="📷 Photo";
-      else if(it.last.kind==='video')lastText="🎬 Video";
-      else if(it.last.kind==='file')lastText="📎 "+(it.last.fileName||"File");
-      else lastText=it.last.text||"";
-    }
-    const av=it.type==='group'
-      ?avatarHTML(it.entity)
-      :avatarHTML(it.entity,"avatar",true);
+  list.innerHTML = items.map(it => {
+    const isActive = activeType===it.type && activeId===it.id;
+    const av = it.type==='group' ? avatarHTML(it.entity) : avatarHTML(it.entity,"avatar",true);
     return `<div class="chat-item ${isActive?'active':''}" onclick="openChat('${it.type}','${it.id}')">
       ${av}
       <div class="chat-info"><div class="chat-name">${esc(it.name)}${it.type==='group'?' <span style="font-size:10px;color:#9aa2b1">👥</span>':''}</div>
-      <div class="chat-last">${esc(lastText)}</div></div>
+      <div class="chat-last">${it.type==='group'?(it.entity.members?.length||0)+' members':'Tap to chat'}</div></div>
     </div>`;
   }).join("");
 }
 
-function openChat(type,id){
+async function openChat(type, id){
   if(type==='user'){
-    if(!(db.friends[db.current]||[]).includes(id))return;
+    if(!friends.includes(id)) return;
+    await prefetchUsers([id]);
   }else{
-    const g=group(id);if(!g||!g.members.includes(db.current))return;
+    const g = groups.find(x => x.id===id);
+    if(!g) return;
   }
-  activeType=type;activeId=id;
+  activeType = type;
+  activeId = id;
   clearPendingFile();
-  const entity=type==='user'?user(id):group(id);
-  const headAv=document.getElementById("headAvatar");
-  headAv.style.display="grid";
-  headAv.style.background=entity.avatar?'transparent':color(entity.id);
-  headAv.innerHTML=entity.avatar?`<img src="${entity.avatar}" alt="">`:esc((entity.name||'?')[0].toUpperCase());
-  document.getElementById("headName").textContent=entity.name;
+
+  const entity = type==='user' ? getUser(id) : groups.find(x => x.id===id);
+  if(!entity) return;
+
+  const headAv = document.getElementById("headAvatar");
+  headAv.style.display = "grid";
+  headAv.style.background = entity.avatar ? "transparent" : color(entity.id);
+  headAv.innerHTML = entity.avatar ? `<img src="${entity.avatar}" alt="">` : esc((entity.name||'?')[0].toUpperCase());
+  document.getElementById("headName").textContent = entity.name;
   if(type==='user'){
-    document.getElementById("headStatus").textContent=entity.online?"● Online":"Offline";
+    document.getElementById("headStatus").textContent = entity.online ? "● Online" : "Offline";
   }else{
-    document.getElementById("headStatus").textContent=entity.members.length+" members";
+    document.getElementById("headStatus").textContent = (entity.members?.length||0)+" members";
   }
   document.getElementById("composer").classList.remove("hidden");
-  renderMessages();renderDetails();renderChats();
+  renderChats();
+  renderDetails();
+  subscribeMessages();
   document.getElementById("messageInput").focus();
 }
 
-function renderMessages(preserveScroll=false){
-  const box=document.getElementById("messages");
-  const k=msgKey();
-  const ms=k?(db.messages[k]||[]):[];
+function subscribeMessages(){
+  if(unsubMessages) unsubMessages();
+  const cid = chatId();
+  if(!cid) return;
 
-  const oldScrollHeight=box.scrollHeight;
-  const oldScrollTop=box.scrollTop;
-  const wasNearBottom=(oldScrollHeight-box.clientHeight-oldScrollTop)<80;
+  unsubMessages = db.collection("chats").doc(cid).collection("messages")
+    .orderBy("time","asc")
+    .onSnapshot(snap => {
+      messagesList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      renderMessages();
+      renderDetails();
+    }, err => {
+      console.error(err);
+      toast("Could not load messages.");
+    });
+}
+
+function renderMessages(preserveScroll=false){
+  const box = document.getElementById("messages");
+  const ms = messagesList;
+  const oldScrollHeight = box.scrollHeight;
+  const oldScrollTop = box.scrollTop;
+  const wasNearBottom = (oldScrollHeight - box.clientHeight - oldScrollTop) < 80;
 
   if(!ms.length){
-    box.innerHTML='<div class="empty"><div class="empty-icon">👋</div><h3>Say hello</h3><p>There are no messages yet.</p></div>';
+    box.innerHTML = '<div class="empty"><div class="empty-icon">👋</div><h3>Say hello</h3><p>There are no messages yet.</p></div>';
     return;
   }
 
-  box.innerHTML=ms.map(m=>{
-    const mine=m.from===db.current;
-    let content='';
-    const dlName=esc(m.fileName||(m.kind==='image'?'image.png':m.kind==='video'?'video.mp4':'file'));
+  box.innerHTML = ms.map(m => {
+    const mine = m.from === currentUid;
+    let content = '';
+    const dlName = esc(m.fileName || (m.kind==='image'?'image.png':m.kind==='video'?'video.mp4':'file'));
 
-    if(m.kind==='image'&&m.dataUrl){
-      content=`<img class="media" src="${m.dataUrl}" alt="${dlName}" onclick="window.open(this.src)">
-        <div style="margin-top:6px"><a class="file-dl" href="${m.dataUrl}" download="${dlName}">⬇ Download ${esc(m.fileName||'image')}</a></div>`;
-      if(m.text)content+=`<div style="margin-top:6px">${esc(m.text)}</div>`;
-    }else if(m.kind==='video'&&m.dataUrl){
-      content=`<video class="media" controls src="${m.dataUrl}"></video>
-        <div style="margin-top:6px"><a class="file-dl" href="${m.dataUrl}" download="${dlName}">⬇ Download ${esc(m.fileName||'video')}</a></div>`;
-      if(m.text)content+=`<div style="margin-top:6px">${esc(m.text)}</div>`;
-    }else if(m.kind==='file'&&m.dataUrl){
-      content=`<div class="file-card"><div class="file-icon">📄</div><div class="file-meta">
+    if(m.kind==='image' && m.url){
+      content = `<img class="media" src="${m.url}" alt="${dlName}" onclick="window.open(this.src)">
+        <div style="margin-top:6px"><a class="file-dl" href="${m.url}" target="_blank" download="${dlName}">⬇ Download</a></div>`;
+      if(m.text) content += `<div style="margin-top:6px">${esc(m.text)}</div>`;
+    }else if(m.kind==='video' && m.url){
+      content = `<video class="media" controls src="${m.url}"></video>
+        <div style="margin-top:6px"><a class="file-dl" href="${m.url}" target="_blank" download="${dlName}">⬇ Download</a></div>`;
+      if(m.text) content += `<div style="margin-top:6px">${esc(m.text)}</div>`;
+    }else if(m.kind==='file' && m.url){
+      content = `<div class="file-card"><div class="file-icon">📄</div><div class="file-meta">
         <div class="file-name">${esc(m.fileName||'File')}</div>
         <div class="file-size">${formatSize(m.fileSize||0)}</div>
-        <a class="file-dl" href="${m.dataUrl}" download="${dlName}">⬇ Download</a>
+        <a class="file-dl" href="${m.url}" target="_blank" download="${dlName}">⬇ Download</a>
       </div></div>`;
-      if(m.text)content+=`<div style="margin-top:6px">${esc(m.text)}</div>`;
+      if(m.text) content += `<div style="margin-top:6px">${esc(m.text)}</div>`;
     }else{
-      content=esc(m.text||'');
+      content = esc(m.text||'');
     }
 
-    const sender=activeType==='group'&&!mine
-      ?`<div style="font-size:11px;opacity:.75;margin-bottom:3px">${esc(user(m.from)?.name||'User')}</div>`:'';
-
-    const edited=m.edited?'<span class="edited">(edited)</span>':'';
-    const actions=mine
-      ?`<div class="msg-actions">
+    const sender = activeType==='group' && !mine
+      ? `<div style="font-size:11px;opacity:.75;margin-bottom:3px">${esc(getUser(m.from).name||'User')}</div>` : '';
+    const edited = m.edited ? '<span class="edited">(edited)</span>' : '';
+    const actions = mine
+      ? `<div class="msg-actions">
           <button type="button" onclick="editMessage('${m.id}')">Edit</button>
           <button type="button" onclick="deleteMessage('${m.id}')">Delete</button>
-        </div>`:'';
+        </div>` : '';
 
+    const t = m.time?.toDate ? m.time.toDate() : new Date(m.time || Date.now());
     return `<div class="msg ${mine?'mine':'theirs'}">
       ${sender}
       <div class="bubble">${content}</div>
-      <div class="time">${new Date(m.time).toLocaleString()}${edited}</div>
+      <div class="time">${t.toLocaleString()}${edited}</div>
       ${actions}
     </div>`;
   }).join("");
 
-  // Newly opened/sent chats go to the bottom. Scrolling while reading does not.
   if(!preserveScroll || wasNearBottom){
-    box.scrollTop=box.scrollHeight;
+    box.scrollTop = box.scrollHeight;
   }else{
-    box.scrollTop=Math.max(0,oldScrollTop+(box.scrollHeight-oldScrollHeight));
+    box.scrollTop = Math.max(0, oldScrollTop + (box.scrollHeight - oldScrollHeight));
   }
 }
 
-function editMessage(id){
-  if(!activeId)return;
-  const k=msgKey();
-  const ms=db.messages[k]||[];
-  const m=ms.find(x=>x.id===id);
-  if(!m||m.from!==db.current)return;
-
-  // Text-only editing keeps media/file content intact while allowing its caption/text to change.
-  const next=prompt("Edit message:",m.text||'');
-  if(next===null)return;
-  const text=next.trim();
-  if(!text && m.kind==='text')return toast("Message cannot be empty.");
-
-  m.text=text;
-  m.edited=true;
-  m.editedAt=Date.now();
-  save();
-  renderMessages(true);
-  renderChats();
-  renderDetails();
+async function editMessage(id){
+  const m = messagesList.find(x => x.id===id);
+  if(!m || m.from !== currentUid) return;
+  const next = prompt("Edit message:", m.text || '');
+  if(next === null) return;
+  const text = next.trim();
+  if(!text && m.kind==='text') return toast("Message cannot be empty.");
+  try{
+    await db.collection("chats").doc(chatId()).collection("messages").doc(id).update({
+      text, edited: true, editedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+  }catch(e){ toast("Edit failed."); }
 }
 
-function deleteMessage(id){
-  if(!activeId)return;
-  const k=msgKey();
-  const ms=db.messages[k]||[];
-  const index=ms.findIndex(x=>x.id===id);
-  if(index<0||ms[index].from!==db.current)return;
-
-  if(!confirm("Delete this message?"))return;
-  ms.splice(index,1);
-  db.messages[k]=ms;
-  save();
-  renderMessages(true);
-  renderChats();
-  renderDetails();
-  toast("Message deleted.");
+async function deleteMessage(id){
+  const m = messagesList.find(x => x.id===id);
+  if(!m || m.from !== currentUid) return;
+  if(!confirm("Delete this message?")) return;
+  try{
+    await db.collection("chats").doc(chatId()).collection("messages").doc(id).delete();
+    toast("Message deleted.");
+  }catch(e){ toast("Delete failed."); }
 }
 
 function onFileSelected(e){
-  const f=e.target.files[0];
-  e.target.value='';
-  if(!f)return;
-  if(f.size>MAX_FILE_BYTES)return toast("File too large (max ~2.5 MB for this demo).");
-  const reader=new FileReader();
-  reader.onload=()=>{
-    let kind='file';
-    if(f.type.startsWith('image/'))kind='image';
-    else if(f.type.startsWith('video/'))kind='video';
-    pendingFile={name:f.name,type:f.type,size:f.size,dataUrl:reader.result,kind};
-    const bar=document.getElementById("previewBar");
-    const thumb=document.getElementById("previewThumb");
-    if(kind==='image')thumb.innerHTML=`<img src="${reader.result}" alt="">`;
-    else if(kind==='video')thumb.innerHTML=`<video src="${reader.result}" muted></video>`;
-    else thumb.innerHTML=`<div style="width:48px;height:48px;border-radius:8px;background:#e8eaf0;display:grid;place-items:center">📄</div>`;
-    document.getElementById("previewName").textContent=f.name;
-    document.getElementById("previewSize").textContent=formatSize(f.size);
-    bar.classList.add("show");
-  };
-  reader.readAsDataURL(f);
-}
-function clearPendingFile(){
-  pendingFile=null;
-  document.getElementById("previewBar").classList.remove("show");
-  document.getElementById("previewThumb").innerHTML='';
+  const f = e.target.files[0];
+  e.target.value = '';
+  if(!f) return;
+  if(f.size > MAX_FILE_BYTES) return toast("File too large (max 5 MB).");
+  let kind = 'file';
+  if(f.type.startsWith('image/')) kind = 'image';
+  else if(f.type.startsWith('video/')) kind = 'video';
+  pendingFile = { file: f, name: f.name, type: f.type, size: f.size, kind };
+  const bar = document.getElementById("previewBar");
+  const thumb = document.getElementById("previewThumb");
+  if(kind==='image'){
+    thumb.innerHTML = `<img src="${URL.createObjectURL(f)}" alt="">`;
+  }else if(kind==='video'){
+    thumb.innerHTML = `<video src="${URL.createObjectURL(f)}" muted></video>`;
+  }else{
+    thumb.innerHTML = `<div style="width:48px;height:48px;border-radius:8px;background:#e8eaf0;display:grid;place-items:center">📄</div>`;
+  }
+  document.getElementById("previewName").textContent = f.name;
+  document.getElementById("previewSize").textContent = formatSize(f.size);
+  bar.classList.add("show");
 }
 
-function sendMessage(e){
+function clearPendingFile(){
+  pendingFile = null;
+  document.getElementById("previewBar").classList.remove("show");
+  document.getElementById("previewThumb").innerHTML = '';
+}
+
+async function sendMessage(e){
   e.preventDefault();
-  if(!activeId)return;
-  const input=document.getElementById("messageInput");
-  const text=input.value.trim();
-  if(!text&&!pendingFile)return;
-  const k=msgKey();
-  if(!db.messages[k])db.messages[k]=[];
-  const msg={id:uid(),from:db.current,time:Date.now(),text:text||''};
-  if(pendingFile){
-    msg.kind=pendingFile.kind;
-    msg.dataUrl=pendingFile.dataUrl;
-    msg.fileName=pendingFile.name;
-    msg.fileSize=pendingFile.size;
-    msg.mime=pendingFile.type;
-  }else{
-    msg.kind='text';
+  if(!activeId) return;
+  const input = document.getElementById("messageInput");
+  const text = input.value.trim();
+  if(!text && !pendingFile) return;
+
+  const cid = chatId();
+  const msg = {
+    from: currentUid,
+    time: firebase.firestore.FieldValue.serverTimestamp(),
+    text: text || '',
+    kind: 'text'
+  };
+
+  try{
+    if(pendingFile){
+      const path = `chats/${cid}/${Date.now()}_${pendingFile.name}`;
+      const ref = storage.ref().child(path);
+      await ref.put(pendingFile.file);
+      const url = await ref.getDownloadURL();
+      msg.kind = pendingFile.kind;
+      msg.url = url;
+      msg.fileName = pendingFile.name;
+      msg.fileSize = pendingFile.size;
+      msg.mime = pendingFile.type;
+    }
+    await db.collection("chats").doc(cid).collection("messages").add(msg);
+    if(activeType==='group'){
+      await db.collection("groups").doc(activeId).set({ updatedAt: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    }
+    input.value = "";
+    clearPendingFile();
+  }catch(err){
+    console.error(err);
+    toast("Failed to send. Check Storage rules / network.");
   }
-  db.messages[k].push(msg);
-  save();
-  input.value="";
-  clearPendingFile();
-  renderMessages();renderChats();renderDetails();
 }
 
 function renderDetails(){
-  if(!activeId)return;
-  const isGroup=activeType==='group';
-  const entity=isGroup?group(activeId):user(activeId);
-  if(!entity)return;
+  if(!activeId) return;
+  const isGroup = activeType==='group';
+  const entity = isGroup ? groups.find(g => g.id===activeId) : getUser(activeId);
+  if(!entity) return;
+
   document.getElementById("detailEmpty").classList.add("hidden");
   document.getElementById("detailProfile").classList.remove("hidden");
-  const dav=document.getElementById("detailAvatar");
-  dav.style.background=entity.avatar?'transparent':color(entity.id);
-  dav.innerHTML=(entity.avatar?`<img src="${entity.avatar}" alt="">`:esc((entity.name||'?')[0].toUpperCase()))+
-    (canEditActiveAvatar()?`<span class="edit-hint">Change</span>`:'');
-  document.getElementById("detailName").textContent=entity.name;
-  document.getElementById("detailUsername").textContent=isGroup?`${entity.members.length} members`:'@'+entity.username;
-  document.getElementById("detailType").textContent=isGroup?'Group':'Direct';
-  document.getElementById("detailStatus").textContent=isGroup?(entity.members.length+' members'):(entity.online?'Online':'Offline');
-  document.getElementById("detailCount").textContent=(db.messages[msgKey()]||[]).length;
+  const dav = document.getElementById("detailAvatar");
+  dav.style.background = entity.avatar ? "transparent" : color(entity.id);
+  dav.innerHTML = (entity.avatar ? `<img src="${entity.avatar}" alt="">` : esc((entity.name||'?')[0].toUpperCase())) +
+    (canEditActiveAvatar() ? `<span class="edit-hint">Change</span>` : '');
+  document.getElementById("detailName").textContent = entity.name;
+  document.getElementById("detailUsername").textContent = isGroup ? `${entity.members?.length||0} members` : '@'+entity.username;
+  document.getElementById("detailType").textContent = isGroup ? 'Group' : 'Direct';
+  document.getElementById("detailStatus").textContent = isGroup ? ((entity.members?.length||0)+' members') : (entity.online ? 'Online' : 'Offline');
+  document.getElementById("detailCount").textContent = messagesList.length;
 
-  const membersBlock=document.getElementById("groupMembersBlock");
-  const leaveBtn=document.getElementById("leaveGroupBtn");
-  const remBtn=document.getElementById("removeFriendBtn");
+  const membersBlock = document.getElementById("groupMembersBlock");
+  const leaveBtn = document.getElementById("leaveGroupBtn");
+  const remBtn = document.getElementById("removeFriendBtn");
   if(isGroup){
     membersBlock.classList.remove("hidden");
     leaveBtn.classList.remove("hidden");
     remBtn.classList.add("hidden");
-    document.getElementById("groupMembersList").innerHTML=entity.members.map(mid=>{
-      const u=user(mid);if(!u)return '';
+    document.getElementById("groupMembersList").innerHTML = (entity.members||[]).map(mid => {
+      const u = getUser(mid);
       return `<div class="member-row">${avatarHTML(u,"avatar",true)}<div style="flex:1;min-width:0"><strong style="font-size:13px">${esc(u.name)}</strong><div style="font-size:11px;color:var(--muted)">@${esc(u.username)}${mid===entity.createdBy?' · Creator':''}</div></div></div>`;
     }).join('');
+    prefetchUsers(entity.members||[]);
   }else{
     membersBlock.classList.add("hidden");
     leaveBtn.classList.add("hidden");
@@ -588,97 +777,194 @@ function renderDetails(){
 }
 
 function canEditActiveAvatar(){
-  if(activeType==='user')return false; // friend profile not editable by you
   if(activeType==='group'){
-    const g=group(activeId);
-    return g&&g.createdBy===db.current;
+    const g = groups.find(x => x.id===activeId);
+    return g && g.createdBy === currentUid;
   }
   return false;
 }
 
-function changeActiveAvatar(){
-  if(!canEditActiveAvatar())return;
-  pickAvatar(dataUrl=>{
-    const g=group(activeId);
-    if(g){g.avatar=dataUrl;save();renderDetails();renderChats();openChat('group',activeId);toast("Group photo updated.")}
+async function changeActiveAvatar(){
+  if(!canEditActiveAvatar()) return;
+  pickAvatar(async (file) => {
+    try{
+      const path = `groups/${activeId}/avatar_${Date.now()}`;
+      const ref = storage.ref().child(path);
+      await ref.put(file);
+      const url = await ref.getDownloadURL();
+      await db.collection("groups").doc(activeId).update({ avatar: url });
+      toast("Group photo updated.");
+    }catch(e){ toast("Upload failed."); }
   });
 }
 
-function clearChat(){
-  if(!activeId)return;
-  if(!confirm("Clear this conversation from this browser?"))return;
-  const k=msgKey();
-  if(k)delete db.messages[k];
-  save();renderMessages();renderChats();renderDetails();toast("Conversation cleared.");
-}
-function removeFriend(){
-  if(activeType!=='user'||!activeId)return;
-  if(!confirm("Remove this friend?"))return;
-  db.friends[db.current]=(db.friends[db.current]||[]).filter(x=>x!==activeId);
-  db.friends[activeId]=(db.friends[activeId]||[]).filter(x=>x!==db.current);
-  activeId=null;activeType=null;save();renderChats();showNoChat();toast("Friend removed.");
-}
-function leaveGroup(){
-  if(activeType!=='group'||!activeId)return;
-  if(!confirm("Leave this group?"))return;
-  const g=group(activeId);
-  if(!g)return;
-  g.members=g.members.filter(m=>m!==db.current);
-  if(g.members.length===0){
-    db.groups=db.groups.filter(x=>x.id!==g.id);
-    delete db.messages['g_'+g.id];
-  }
-  activeId=null;activeType=null;save();renderChats();showNoChat();toast("You left the group.");
+async function clearChat(){
+  if(!activeId) return;
+  if(!confirm("Hide messages from this view? (Does not delete for others)")) return;
+  messagesList = [];
+  renderMessages();
+  toast("View cleared. Re-open chat to reload.");
 }
 
-/* ---------- Friend request flow ---------- */
+async function removeFriend(){
+  if(activeType!=='user' || !activeId) return;
+  if(!confirm("Remove this friend?")) return;
+  try{
+    const batch = db.batch();
+    batch.update(db.collection("users").doc(currentUid), { friends: firebase.firestore.FieldValue.arrayRemove(activeId) });
+    batch.update(db.collection("users").doc(activeId), { friends: firebase.firestore.FieldValue.arrayRemove(currentUid) });
+    await batch.commit();
+    activeId = null; activeType = null;
+    showNoChat();
+    toast("Friend removed.");
+  }catch(e){ toast("Failed to remove friend."); }
+}
+
+async function leaveGroup(){
+  if(activeType!=='group' || !activeId) return;
+  if(!confirm("Leave this group?")) return;
+  try{
+    const ref = db.collection("groups").doc(activeId);
+    await ref.update({ members: firebase.firestore.FieldValue.arrayRemove(currentUid) });
+    const snap = await ref.get();
+    if(snap.exists && (snap.data().members||[]).length === 0){
+      await ref.delete();
+    }
+    activeId = null; activeType = null;
+    showNoChat();
+    toast("You left the group.");
+  }catch(e){ toast("Failed to leave group."); }
+}
+
 function openFriendModal(){
-  document.getElementById("modalTitle").textContent="Add Friend";
-  document.getElementById("modalBody").innerHTML=`
+  document.getElementById("modalTitle").textContent = "Add Friend";
+  document.getElementById("modalBody").innerHTML = `
   <div class="field"><label>Search username</label><input id="friendSearch" oninput="searchUsers()" autofocus placeholder="Type a username..."></div>
   <div id="userResults"></div>`;
-  openModal();setTimeout(()=>document.getElementById("friendSearch")?.focus(),50);
-}
-function searchUsers(){
-  const q=document.getElementById("friendSearch").value.trim().toLowerCase(),out=document.getElementById("userResults");
-  if(!q){out.innerHTML="";return}
-  const me=db.current,f=db.friends[me]||[];
-  const users=db.users.filter(u=>u.id!==me&&(u.username+" "+u.name).toLowerCase().includes(q));
-  out.innerHTML=users.length?users.map(u=>{
-    const already=f.includes(u.id),pending=db.requests.some(r=>r.from===me&&r.to===u.id&&r.status==="pending");
-    return `<div class="user-result">${avatarHTML(u)}<div class="user-result-info"><strong>${esc(u.name)}</strong><span>@${esc(u.username)}</span></div>
-    ${already?'<button class="small-btn gray">Friends</button>':pending?'<button class="small-btn gray">Sent</button>':`<button class="small-btn" onclick="sendRequest('${u.id}')">Add</button>`}</div>`
-  }).join(""):'<div style="padding:20px;text-align:center;color:#9aa2b1;font-size:13px">No user found.</div>';
-}
-function sendRequest(to){
-  if(db.requests.some(r=>r.from===db.current&&r.to===to&&r.status==="pending"))return;
-  db.requests.push({id:uid(),from:db.current,to,status:"pending",time:Date.now()});save();toast("Friend request sent.");searchUsers();
-}
-function openRequests(){
-  document.getElementById("modalTitle").textContent="Friend Requests";
-  const incoming=db.requests.filter(r=>r.to===db.current&&r.status==="pending");
-  document.getElementById("modalBody").innerHTML=incoming.length?incoming.map(r=>{
-    const u=user(r.from);return `<div class="req">${avatarHTML(u)}<div class="req-info"><strong>${esc(u.name)}</strong><span>@${esc(u.username)}</span></div>
-    <button class="small-btn" onclick="respond('${r.id}',true)">Accept</button><button class="small-btn gray" onclick="respond('${r.id}',false)">Decline</button></div>`
-  }).join(""):'<div style="text-align:center;color:#9aa2b1;padding:25px">No pending requests.</div>';
   openModal();
-}
-function respond(id,accept){
-  const r=db.requests.find(x=>x.id===id);if(!r)return;
-  r.status=accept?"accepted":"declined";
-  if(accept){
-    db.friends[db.current]=[...(db.friends[db.current]||[]),r.from];
-    db.friends[r.from]=[...(db.friends[r.from]||[]),db.current];
-  }
-  save();toast(accept?"Friend added!":"Request declined.");openRequests();renderChats();
+  setTimeout(() => document.getElementById("friendSearch")?.focus(), 50);
 }
 
-/* ---------- Groups ---------- */
+async function searchUsers(){
+  const q = document.getElementById("friendSearch").value.trim().toLowerCase();
+  const out = document.getElementById("userResults");
+  if(!q){ out.innerHTML = ""; return; }
+
+  try{
+    const exact = await db.collection("usernames").doc(q).get();
+    let users = [];
+    if(exact.exists){
+      const uid = exact.data().uid;
+      if(uid !== currentUid){
+        await prefetchUsers([uid]);
+        users = [getUser(uid)];
+      }
+    }else{
+      const snap = await db.collection("users")
+        .where("username", ">=", q)
+        .where("username", "<=", q + "\uf8ff")
+        .limit(10)
+        .get();
+      users = snap.docs
+        .map(d => ({ id: d.id, ...d.data() }))
+        .filter(u => u.id !== currentUid);
+      users.forEach(u => { usersCache[u.id] = u; });
+    }
+
+    out.innerHTML = users.length ? users.map(u => {
+      const already = friends.includes(u.id);
+      return `<div class="user-result">${avatarHTML(u)}<div class="user-result-info"><strong>${esc(u.name)}</strong><span>@${esc(u.username)}</span></div>
+      ${already
+        ? '<button class="small-btn gray">Friends</button>'
+        : `<button class="small-btn" onclick="sendRequest('${u.id}')">Add</button>`}</div>`;
+    }).join("") : '<div style="padding:20px;text-align:center;color:#9aa2b1;font-size:13px">No user found.</div>';
+  }catch(e){
+    console.error(e);
+    out.innerHTML = '<div style="padding:12px;color:#e04b5b;font-size:13px">Search failed. Check Firestore indexes/rules.</div>';
+  }
+}
+
+async function sendRequest(to){
+  try{
+    const existing = await db.collection("requests")
+      .where("from","==",currentUid)
+      .where("to","==",to)
+      .where("status","==","pending")
+      .limit(1).get();
+    if(!existing.empty){ toast("Request already sent."); return; }
+
+    await db.collection("requests").add({
+      from: currentUid,
+      to,
+      status: "pending",
+      time: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    toast("Friend request sent.");
+    searchUsers();
+  }catch(e){
+    console.error(e);
+    toast("Could not send request.");
+  }
+}
+
+function openRequests(){
+  document.getElementById("modalTitle").textContent = "Friend Requests";
+  document.getElementById("modalBody").innerHTML = '<div style="text-align:center;color:#9aa2b1;padding:20px">Loading…</div>';
+  openModal();
+
+  db.collection("requests")
+    .where("to","==",currentUid)
+    .where("status","==","pending")
+    .get()
+    .then(async snap => {
+      if(snap.empty){
+        document.getElementById("modalBody").innerHTML = '<div style="text-align:center;color:#9aa2b1;padding:25px">No pending requests.</div>';
+        return;
+      }
+      const rows = [];
+      for(const d of snap.docs){
+        const r = d.data();
+        await prefetchUsers([r.from]);
+        const u = getUser(r.from);
+        rows.push(`<div class="req">${avatarHTML(u)}<div class="req-info"><strong>${esc(u.name)}</strong><span>@${esc(u.username)}</span></div>
+          <button class="small-btn" onclick="respond('${d.id}',true)">Accept</button>
+          <button class="small-btn gray" onclick="respond('${d.id}',false)">Decline</button></div>`);
+      }
+      document.getElementById("modalBody").innerHTML = rows.join("");
+    })
+    .catch(() => {
+      document.getElementById("modalBody").innerHTML = '<div style="padding:20px;color:#e04b5b">Failed to load requests.</div>';
+    });
+}
+
+async function respond(id, accept){
+  try{
+    const ref = db.collection("requests").doc(id);
+    const snap = await ref.get();
+    if(!snap.exists) return;
+    const r = snap.data();
+    await ref.update({ status: accept ? "accepted" : "declined" });
+    if(accept){
+      const batch = db.batch();
+      batch.update(db.collection("users").doc(currentUid), { friends: firebase.firestore.FieldValue.arrayUnion(r.from) });
+      batch.update(db.collection("users").doc(r.from), { friends: firebase.firestore.FieldValue.arrayUnion(currentUid) });
+      await batch.commit();
+      toast("Friend added!");
+    }else{
+      toast("Request declined.");
+    }
+    openRequests();
+  }catch(e){
+    console.error(e);
+    toast("Action failed.");
+  }
+}
+
 function openCreateGroup(){
-  const friends=(db.friends[db.current]||[]).map(id=>user(id)).filter(Boolean);
-  if(!friends.length)return toast("Add some friends first to create a group.");
-  document.getElementById("modalTitle").textContent="Create Group";
-  document.getElementById("modalBody").innerHTML=`
+  if(!friends.length) return toast("Add some friends first to create a group.");
+  const friendUsers = friends.map(id => getUser(id));
+  document.getElementById("modalTitle").textContent = "Create Group";
+  document.getElementById("modalBody").innerHTML = `
   <div class="field"><label>Group name</label><input id="groupName" placeholder="e.g. Weekend plans" maxlength="40"></div>
   <div class="field"><label>Group photo (optional)</label>
     <input type="file" id="groupAvatarFile" accept="image/*" onchange="previewGroupAvatar(event)">
@@ -686,49 +972,62 @@ function openCreateGroup(){
   </div>
   <div class="field"><label>Select members</label>
     <div id="groupMemberChecks" style="max-height:200px;overflow:auto;border:1px solid var(--border);border-radius:10px;padding:8px 12px">
-      ${friends.map(u=>`<label class="check-row"><input type="checkbox" value="${u.id}"><div>${avatarHTML(u,"avatar")}</div><div><strong style="font-size:13px">${esc(u.name)}</strong><div style="font-size:11px;color:var(--muted)">@${esc(u.username)}</div></div></label>`).join('')}
+      ${friendUsers.map(u => `<label class="check-row"><input type="checkbox" value="${u.id}"><div>${avatarHTML(u,"avatar")}</div><div><strong style="font-size:13px">${esc(u.name)}</strong><div style="font-size:11px;color:var(--muted)">@${esc(u.username)}</div></div></label>`).join('')}
     </div>
   </div>
   <button class="primary" style="margin-top:8px" onclick="createGroup()">Create Group</button>`;
-  window._pendingGroupAvatar=null;
+  window._pendingGroupAvatar = null;
   openModal();
 }
+
 function previewGroupAvatar(e){
-  const f=e.target.files[0];
-  if(!f||!f.type.startsWith('image/'))return;
-  if(f.size>MAX_FILE_BYTES)return toast("Image too large.");
-  const r=new FileReader();
-  r.onload=()=>{
-    window._pendingGroupAvatar=r.result;
-    const prev=document.getElementById("groupAvPrev");
-    prev.style.display="grid";
-    prev.innerHTML=`<img src="${r.result}" alt="">`;
-  };
-  r.readAsDataURL(f);
-}
-function createGroup(){
-  const name=(document.getElementById("groupName").value||'').trim();
-  if(!name||name.length<2)return toast("Enter a group name (at least 2 characters).");
-  const checks=[...document.querySelectorAll("#groupMemberChecks input:checked")].map(c=>c.value);
-  if(!checks.length)return toast("Select at least one member.");
-  const members=[db.current,...checks];
-  const g={id:uid(),name,avatar:window._pendingGroupAvatar||null,members,createdBy:db.current,created:Date.now()};
-  db.groups=db.groups||[];
-  db.groups.push(g);
-  save();
-  closeModal();
-  toast("Group created!");
-  renderChats();
-  openChat('group',g.id);
+  const f = e.target.files[0];
+  if(!f || !f.type.startsWith('image/')) return;
+  if(f.size > MAX_FILE_BYTES) return toast("Image too large.");
+  window._pendingGroupAvatar = f;
+  const prev = document.getElementById("groupAvPrev");
+  prev.style.display = "grid";
+  prev.innerHTML = `<img src="${URL.createObjectURL(f)}" alt="">`;
 }
 
-/* ---------- Own profile & avatars ---------- */
+async function createGroup(){
+  const name = (document.getElementById("groupName").value || '').trim();
+  if(!name || name.length < 2) return toast("Enter a group name (at least 2 characters).");
+  const checks = [...document.querySelectorAll("#groupMemberChecks input:checked")].map(c => c.value);
+  if(!checks.length) return toast("Select at least one member.");
+  const members = [currentUid, ...checks];
+
+  try{
+    let avatar = null;
+    if(window._pendingGroupAvatar){
+      const path = `groups/avatars/${Date.now()}_${window._pendingGroupAvatar.name}`;
+      const ref = storage.ref().child(path);
+      await ref.put(window._pendingGroupAvatar);
+      avatar = await ref.getDownloadURL();
+    }
+    const doc = await db.collection("groups").add({
+      name,
+      avatar,
+      members,
+      createdBy: currentUid,
+      created: firebase.firestore.FieldValue.serverTimestamp(),
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    closeModal();
+    toast("Group created!");
+    openChat('group', doc.id);
+  }catch(e){
+    console.error(e);
+    toast("Could not create group.");
+  }
+}
+
 function openMyProfile(){
-  const me=user(db.current);
-  document.getElementById("modalTitle").textContent="My Profile";
-  document.getElementById("modalBody").innerHTML=`
+  const me = currentUser;
+  document.getElementById("modalTitle").textContent = "My Profile";
+  document.getElementById("modalBody").innerHTML = `
   <div style="text-align:center">
-    <div id="myProfAv" class="avatar-preview" style="background:${me.avatar?'transparent':color(me.id)}">${me.avatar?`<img src="${me.avatar}" alt="">`:esc(me.name[0].toUpperCase())}</div>
+    <div id="myProfAv" class="avatar-preview" style="background:${me.avatar?'transparent':color(me.id)}">${me.avatar?`<img src="${me.avatar}" alt="">`:esc((me.name||'?')[0].toUpperCase())}</div>
     <button class="small-btn" style="margin-bottom:16px" onclick="changeMyAvatar()">Change photo</button>
   </div>
   <div class="field"><label>Display name</label><input id="editName" value="${esc(me.name)}" maxlength="30"></div>
@@ -736,54 +1035,57 @@ function openMyProfile(){
   <button class="primary" onclick="saveMyProfile()">Save</button>`;
   openModal();
 }
+
 function pickAvatar(cb){
-  const inp=document.createElement('input');
-  inp.type='file';inp.accept='image/*';
-  inp.onchange=()=>{
-    const f=inp.files[0];if(!f)return;
-    if(f.size>MAX_FILE_BYTES)return toast("Image too large (max ~2.5 MB).");
-    const r=new FileReader();
-    r.onload=()=>cb(r.result);
-    r.readAsDataURL(f);
+  const inp = document.createElement('input');
+  inp.type = 'file';
+  inp.accept = 'image/*';
+  inp.onchange = () => {
+    const f = inp.files[0];
+    if(!f) return;
+    if(f.size > MAX_FILE_BYTES) return toast("Image too large (max 5 MB).");
+    cb(f);
   };
   inp.click();
 }
-function changeMyAvatar(){
-  pickAvatar(dataUrl=>{
-    const me=user(db.current);
-    me.avatar=dataUrl;save();
-    updateMyAvatar();
-    const prev=document.getElementById("myProfAv");
-    if(prev){prev.style.background='transparent';prev.innerHTML=`<img src="${dataUrl}" alt="">`}
-    toast("Profile photo updated.");
+
+async function changeMyAvatar(){
+  pickAvatar(async (file) => {
+    try{
+      const path = `users/${currentUid}/avatar_${Date.now()}`;
+      const ref = storage.ref().child(path);
+      await ref.put(file);
+      const url = await ref.getDownloadURL();
+      await db.collection("users").doc(currentUid).update({ avatar: url });
+      currentUser.avatar = url;
+      updateMyAvatar();
+      const prev = document.getElementById("myProfAv");
+      if(prev){ prev.style.background='transparent'; prev.innerHTML = `<img src="${url}" alt="">`; }
+      toast("Profile photo updated.");
+    }catch(e){ toast("Upload failed."); }
   });
 }
-function saveMyProfile(){
-  const name=(document.getElementById("editName").value||'').trim();
-  if(!name)return toast("Name cannot be empty.");
-  const me=user(db.current);
-  me.name=name;save();
-  document.getElementById("myName").textContent=me.name;
-  updateMyAvatar();
-  closeModal();
-  renderChats();
-  if(activeId){renderDetails();openChat(activeType,activeId)}
-  toast("Profile saved.");
+
+async function saveMyProfile(){
+  const name = (document.getElementById("editName").value || '').trim();
+  if(!name) return toast("Name cannot be empty.");
+  try{
+    await db.collection("users").doc(currentUid).update({ name });
+    currentUser.name = name;
+    document.getElementById("myName").textContent = name;
+    closeModal();
+    renderChats();
+    if(activeId) renderDetails();
+    toast("Profile saved.");
+  }catch(e){ toast("Save failed."); }
 }
 
-function openModal(){document.getElementById("overlay").classList.remove("hidden")}
-function closeModal(){document.getElementById("overlay").classList.add("hidden")}
-document.getElementById("overlay").addEventListener("click",e=>{if(e.target.id==="overlay")closeModal()})
-function mobileBack(){activeId=null;activeType=null;showNoChat();renderChats()}
+function openModal(){ document.getElementById("overlay").classList.remove("hidden"); }
+function closeModal(){ document.getElementById("overlay").classList.add("hidden"); }
+document.getElementById("overlay").addEventListener("click", e => { if(e.target.id==="overlay") closeModal(); });
+function mobileBack(){ activeId=null; activeType=null; showNoChat(); renderChats(); }
 
-window.addEventListener("storage",()=>{
-  db=JSON.parse(localStorage.getItem(DBKEY)||'null')||db;
-  if(db.current&&activeId)renderMessages(true);
-  renderChats();
-  if(db.current)updateMyAvatar();
-});
-
-if(db.current&&user(db.current)){user(db.current).online=true;save();enterApp()}
+init();
 </script>
 </body>
 </html>
